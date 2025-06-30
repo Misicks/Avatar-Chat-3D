@@ -4,7 +4,7 @@ import ChatInterface from '@/components/Chat/ChatInterface';
 import Avatar3D from '@/components/Avatar/Avatar3D';
 import { useChat } from '@/hooks/useChat';
 import { Send } from 'lucide-react';
-import TypingIndicator from '@/components/Chat/TypingIndicator';
+
 
 export default function HomePage() {
   const { messages, sendMessage, isLoading } = useChat();

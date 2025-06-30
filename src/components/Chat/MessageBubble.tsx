@@ -10,7 +10,6 @@ interface MessageBubbleProps {
 
 const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
   const [displayedText, setDisplayedText] = useState('');
-  const [isComplete, setIsComplete] = useState(false);
 
   // Verificación de seguridad para evitar errores si message es undefined
   if (!message) {
@@ -19,10 +18,9 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
 
   const isUser = message.role === 'user';
 
-      // Mostrar texto completo sin typing effect
+  // Mostrar texto completo sin typing effect
   useEffect(() => {
     setDisplayedText(message.content);
-    setIsComplete(true);
   }, [message.content]);
 
   return (

@@ -8,17 +8,11 @@ function formatTime(ts: number) {
   return new Date(ts).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
-// Mensajes de ejemplo para mostrar el layout
-const mockMessages = [
-  { id: '1', role: 'user' as const, content: 'Hola, ¿quién eres?' },
-  { id: '2', role: 'assistant' as const, content: '¡Hola! Soy tu asistente IA 3D.' },
-  { id: '3', role: 'user' as const, content: '¿Qué puedes hacer?' },
-  { id: '4', role: 'assistant' as const, content: 'Puedo conversar contigo y mostrar animaciones 3D.' },
-];
+
 
 // Lista de mensajes con scroll automático y timestamp
 const MessageList: React.FC = () => {
-  const { messages, isLoading } = useChat();
+  const { messages } = useChat();
   const containerRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const isAtBottomRef = useRef(true);
