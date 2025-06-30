@@ -5,21 +5,36 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "export": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@react-spring/three": "^10.0.1",
+    "@react-three/drei": "^10.3.0",
+    "@react-three/fiber": "^9.1.4",
+    "@types/three": "^0.177.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.3.1",
+    "three": "^0.178.0",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
