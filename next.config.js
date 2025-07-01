@@ -2,6 +2,8 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
+  basePath: process.env.NODE_ENV === 'production' ? '/Avatar-Chat-3D' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Avatar-Chat-3D' : '',
   images: {
     unoptimized: true,
   },

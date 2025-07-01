@@ -4,7 +4,7 @@ import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/ge
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY || '';
 
 if (!API_KEY) {
-  console.warn('⚠️ GOOGLE_GEMINI_API_KEY no está configurada. Usando mock API.');
+  console.warn('⚠️ NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY no está configurada. Usando mock API.');
 }
 
 // Inicializar Gemini
