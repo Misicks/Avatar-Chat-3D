@@ -121,3 +121,6 @@ MIT License - see LICENSE file for details
 - [Three.js](https://threejs.org/) for 3D graphics
 - [Next.js](https://nextjs.org/) for the framework
 - [Tailwind CSS](https://tailwindcss.com/) for styling
+=======
+# Avatar-Chat-3D
+Ai chat interface with 3D space
