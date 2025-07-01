@@ -13,14 +13,18 @@ function LeoModel({ file }: { file: string }) {
   return <primitive object={scene} />;
 }
 
-const Avatar3D: React.FC<{ file?: string }> = ({ file = '/models/leoTest.glb' }) => {
+const Avatar3D: React.FC<{ file?: string }> = ({ file }) => {
+  // Determinar la ruta del modelo basada en el entorno
+  const modelPath = file || (process.env.NODE_ENV === 'production' 
+    ? '/Avatar-Chat-3D/models/leoTest.glb' 
+    : '/models/leoTest.glb');
   return (
     <Canvas camera={{ position: [0, 0, 5], fov: 50 }} className="w-full h-[300px] md:h-[400px]">
       <ambientLight intensity={0.6} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <OrbitControls enablePan={false} enableZoom={false} />
       <Suspense fallback={<LoadingAvatar />}>
-        <LeoModel file={file} />
+        <LeoModel file={modelPath} />
       </Suspense>
     </Canvas>
   );

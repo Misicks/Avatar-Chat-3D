@@ -3,6 +3,10 @@ import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/ge
 // Configuración de Gemini
 const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY || '';
 
+console.log('🔍 Debug - NODE_ENV:', process.env.NODE_ENV);
+console.log('🔍 Debug - API_KEY length:', API_KEY.length);
+console.log('🔍 Debug - API_KEY starts with:', API_KEY.substring(0, 10));
+
 if (!API_KEY) {
   console.warn('⚠️ NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY no está configurada. Usando mock API.');
 }
