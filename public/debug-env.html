@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Environment Variables</title>
+</head>
+<body>
+    <h1>Debug Environment Variables</h1>
+    <div id="debug-info"></div>
+    
+    <script>
+        const debugInfo = document.getElementById('debug-info');
+        
+        // Check for environment variables
+        const envVars = {
+            'NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY': process?.env?.NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY || 'NOT_FOUND',
+            'NODE_ENV': process?.env?.NODE_ENV || 'NOT_FOUND',
+        };
+        
+        let html = '<h2>Environment Variables:</h2><ul>';
+        for (const [key, value] of Object.entries(envVars)) {
+            const displayValue = key.includes('API_KEY') && value !== 'NOT_FOUND' 
+                ? value.substring(0, 10) + '...' 
+                : value;
+            html += `<li><strong>${key}:</strong> ${displayValue}</li>`;
+        }
+        html += '</ul>';
+        
+        debugInfo.innerHTML = html;
+    </script>
+</body>
+</html> 

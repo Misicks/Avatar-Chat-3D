@@ -26,6 +26,7 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
           
       - name: Install dependencies
         run: npm ci
@@ -36,6 +37,8 @@ jobs:
           if [ -n "${{ secrets.NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY }}" ]; then
             echo "✅ Secret exists and has length: ${#NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY}"
             echo "First 10 chars: ${NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY:0:10}..."
+            echo "Setting environment variable..."
+            echo "NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY=${NEXT_PUBLIC_GOOGLE_GEMINI_API_KEY}" >> $GITHUB_ENV
           else
             echo "❌ Secret is empty or not set"
           fi
