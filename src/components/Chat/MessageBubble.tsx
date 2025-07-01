@@ -11,17 +11,19 @@ interface MessageBubbleProps {
 const MessageBubble: React.FC<MessageBubbleProps> = ({ message }) => {
   const [displayedText, setDisplayedText] = useState('');
 
+  // Mostrar texto completo sin typing effect
+  useEffect(() => {
+    if (message) {
+      setDisplayedText(message.content);
+    }
+  }, [message?.content]);
+
   // Verificación de seguridad para evitar errores si message es undefined
   if (!message) {
     return null;
   }
 
   const isUser = message.role === 'user';
-
-  // Mostrar texto completo sin typing effect
-  useEffect(() => {
-    setDisplayedText(message.content);
-  }, [message.content]);
 
   return (
     <div className={`flex w-full ${isUser ? 'justify-end' : 'justify-start'} mb-4`}>

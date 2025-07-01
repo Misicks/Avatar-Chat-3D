@@ -54,7 +54,7 @@ export const useChatStore = create<ChatState>((set, get) => ({
       };
       get().addMessage(aiMessage);
       set({ isLoading: false });
-    } catch (e: any) {
+    } catch {
       set({ error: 'Error al enviar mensaje', isLoading: false });
     }
   },

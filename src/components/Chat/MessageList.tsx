@@ -43,7 +43,7 @@ const MessageList: React.FC = () => {
     if (!container) return;
     container.addEventListener('scroll', handleScroll);
     return () => container.removeEventListener('scroll', handleScroll);
-  }, [checkIfAtBottom]);
+  }, [checkIfAtBottom, handleScroll]);
 
   // Efecto para manejar cambios de tamaño de pantalla
   useEffect(() => {

@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import { useChatStore } from '@/stores/chatStore';
-import type { Message } from '@/types';
 
 // Hook para acceder y manipular el estado del chat
 export function useChat() {
@@ -14,7 +13,7 @@ export function useChat() {
       setLoading(true);
       await sendMessage(content);
       setLoading(false);
-    } catch (e) {
+    } catch {
       setError('Error al enviar mensaje');
       setLoading(false);
     }

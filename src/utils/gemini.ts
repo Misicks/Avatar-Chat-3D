@@ -89,17 +89,19 @@ export async function sendGeminiMessage(message: string): Promise<GeminiResponse
       timestamp: Date.now(),
       animation: 'talking',
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error con Gemini API:', error);
     
     // Manejo específico de errores
-    if (error.message?.includes('404') || error.message?.includes('not found')) {
+    const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+    
+    if (errorMessage.includes('404') || errorMessage.includes('not found')) {
       throw new Error('Modelo no disponible. Verifica tu API key y región.');
-    } else if (error.message?.includes('quota') || error.message?.includes('limit')) {
+    } else if (errorMessage.includes('quota') || errorMessage.includes('limit')) {
       throw new Error('Límite de API alcanzado. Intenta más tarde.');
-    } else if (error.message?.includes('invalid') || error.message?.includes('authentication')) {
+    } else if (errorMessage.includes('invalid') || errorMessage.includes('authentication')) {
       throw new Error('API key inválida. Verifica tu configuración.');
-    } else if (error.message?.includes('safety')) {
+    } else if (errorMessage.includes('safety')) {
       throw new Error('El contenido fue bloqueado por filtros de seguridad.');
     } else {
       throw new Error('Error de conexión con Gemini. Intenta más tarde.');
